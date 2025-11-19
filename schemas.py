@@ -41,6 +41,15 @@ class Product(BaseModel):
 # Add your own schemas here:
 # --------------------------------------------------
 
+class SwimEntry(BaseModel):
+    """
+    Swim entries schema
+    Collection name: "swimentry"
+    """
+    date: str = Field(..., description="Date of swim in YYYY-MM-DD format")
+    pools: int = Field(..., ge=0, description="Number of pools swum on the given date")
+    note: Optional[str] = Field(None, description="Optional note")
+
 # Note: The Flames database viewer will automatically:
 # 1. Read these schemas from GET /schema endpoint
 # 2. Use them for document validation when creating/editing
